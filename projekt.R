@@ -18,3 +18,8 @@ colnames(trade)<-c("Epic","Name","Bid","Mid","Offer","Spread","Spread(%)")
 trade$Bid<-as.numeric(gsub(",","",trade$Bid))
 trade$Mid<-as.numeric(gsub(",","",trade$Mid))
 trade$Offer<-as.numeric(gsub(",","",trade$Offer))
+
+colnames(fin) <- c('Epic', 'Name', 'Revenue(m)', 'Pretax_profit(m)', 'EPS(p)', 'ROCE(%)', 'Cash_and_Eguiv(m)')
+fin$`Revenue(m)`<- as.numeric(gsub(",","",fin$`Revenue(m)`))
+fin$`Pretax_profit(m)`<- as.numeric(gsub(",","",fin$`Pretax_profit(m)`))
+fin$`Cash_and_Eguiv(m)`<- as.numeric(gsub(",","",fin$`Cash_and_Eguiv(m)`))

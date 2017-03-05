@@ -7,7 +7,7 @@ uvoz_tabele<- function(ime){
   tabela <- readHTMLTable(naslov, which=2, stringsAsFactors = FALSE)
 }
 
-financial <- uvoz_tabele("financial")[,-7]
+financial <- uvoz_tabele("financial")[,-8]
 fundamentals <- uvoz_tabele("fundamentals")[,-7]
 prices <- uvoz_tabele("prices")[,-8]
 summ <- uvoz_tabele("summary")[,-8]
