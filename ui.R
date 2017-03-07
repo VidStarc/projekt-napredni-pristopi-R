@@ -7,15 +7,16 @@ shinyUI(
     
     
     sidebarPanel(
-      checkboxInput("poz","Samo pozitivne spremembe"),
-      checkboxInput("neg","Samo negativne spremembe"),
-      conditionalPanel(condition = "input.neg == true",checkboxInput("neg1","večje od -0.5")),
-      helpText("Današnje spremembe cen delnic")
+      radioButtons("izbira","Današnje spremembe cen delnic",c("Vse","Samo pozitivne spremembe","Samo negativne spremembe")),
+      #checkboxInput("poz","Samo pozitivne spremembe"),
+      #checkboxInput("neg","Samo negativne spremembe"),
+      conditionalPanel(condition = "input.izbira == 'Samo negativne spremembe'",checkboxInput("neg1","večje od -0.5"))
+      #helpText("Današnje spremembe cen delnic")
       
       ),
     
       
-    mainPanel(plotOutput("histogram"))
+    mainPanel(plotOutput("graf"))
     
   )
 )
