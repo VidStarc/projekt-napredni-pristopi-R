@@ -16,7 +16,7 @@ shinyUI(
       ),
     
       
-    mainPanel(plotOutput("graf"))
+    mainPanel(plotlyOutput("graf"))
     
   )
 )

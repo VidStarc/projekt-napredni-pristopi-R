@@ -1,21 +1,21 @@
 library(shiny)
+library(plotly)
 
 shinyServer(function(input, output) {
   
-  output$graf<-renderPlot(
-    if(input$izbira=='Vse'){barplot(price$`TodayChg(%)`,main="Današnje spremembe različnih delnic", ylim=c(-8,2),
-                                                  names.arg=price$Epic,las=2, cex.names=0.5)}
-    else{if(input$izbira=='Samo pozitivne spremembe'){barplot(price$`TodayChg(%)`[price$`TodayChg(%)`>=0],
-                main="Današnje spremembe različnih delnic", ylim=c(0,2),
-                names.arg=price$Epic[which(price$`TodayChg(%)`>=0)],las=2)}
-      else{if(input$neg1==TRUE){barplot(price$`TodayChg(%)`[price$`TodayChg(%)`<0 & price$`TodayChg(%)`>-0.5],
-                                  main="Današnje spremembe različnih delnic", ylim=c(-1,0),
-                                  names.arg=price$Epic[which(price$`TodayChg(%)`<0 & price$`TodayChg(%)`>-0.5)],
-                                  las=2,cex.names=0.8)}
-        else{barplot(price$`TodayChg(%)`[price$`TodayChg(%)`<0],
-                                       main="Današnje spremembe različnih delnic", ylim=c(-8,0),
-                                       names.arg=price$Epic[which(price$`TodayChg(%)`<0)],
-                   las=2,cex.names=0.8)}}}
+  output$graf<-renderPlotly(
+    if(input$izbira=='Vse'){plot_ly(x=price$Epic,y=price$`TodayChg(%)`,type='bar',
+                                    name="Današnje spremembe različnih delnic")}
+    else{if(input$izbira=='Samo pozitivne spremembe'){plot_ly(x=price$Epic[which(price$`TodayChg(%)`>=0)],
+                                                              y=price$`TodayChg(%)`[price$`TodayChg(%)`>=0],type='bar',
+                                                              name="Današnje spremembe različnih delnic")}
+      else{if(input$neg1==TRUE){plot_ly(x=price$Epic[which(price$`TodayChg(%)`<0 & price$`TodayChg(%)`>-0.5)],
+                                                     y=price$`TodayChg(%)`[price$`TodayChg(%)`<0 & price$`TodayChg(%)`>-0.5],
+                                                     type='bar',name="Današnje spremembe različnih delnic")}
+
+        else{plot_ly(x=price$Epic[which(price$`TodayChg(%)`<0)],y=price$`TodayChg(%)`[price$`TodayChg(%)`<0],type='bar',
+                     name="Današnje spremembe različnih delnic")}}}
+
    
       
   )
