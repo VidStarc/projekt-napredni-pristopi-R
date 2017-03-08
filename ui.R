@@ -1,3 +1,4 @@
+library(plotly)
 shinyUI(
   
   pageWithSidebar(
@@ -7,12 +8,13 @@ shinyUI(
     
     
     sidebarPanel(
-      radioButtons("izbira","Današnje spremembe cen delnic",c("Vse","Samo pozitivne spremembe","Samo negativne spremembe")),
+      radioButtons("izbira","Tip spremembe cene",c("Vse","Samo pozitivne spremembe","Samo negativne spremembe")),
       #checkboxInput("poz","Samo pozitivne spremembe"),
       #checkboxInput("neg","Samo negativne spremembe"),
-      conditionalPanel(condition = "input.izbira == 'Samo negativne spremembe'",checkboxInput("neg1","večje od -0.5"))
+      conditionalPanel(condition = "input.izbira == 'Samo negativne spremembe'",checkboxInput("neg1","večje od -0.5")),
       #helpText("Današnje spremembe cen delnic")
-      
+      hr(),
+      radioButtons("izbira2","Časovno obdobje spremembe",c("današnja","7 dnevna","30 dnevna","6 mesečna"))
       ),
     
       

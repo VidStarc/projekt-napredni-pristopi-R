@@ -1,5 +1,9 @@
 library(shiny)
 library(plotly)
+#library(showtext)
+#font.add.google("Gochi Hand", "gochi")
+#showtext.auto()
+#set.seed(123)
 
 shinyServer(function(input, output) {
   
@@ -23,7 +27,8 @@ shinyServer(function(input, output) {
   output$hist<-renderPlot({
     x<-price$`TodayChg(%)`
     hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability = TRUE,
-         main="Histogram",col = 'blue',border = 'white')
+         main="",col = 'blue',border = 'white')
+    title("Histogram",font=1)
     if(input$gostota){lines(density(x),col='black',lwd=1.5)}
   })
   
