@@ -19,7 +19,7 @@ shinyUI(
     mainPanel(plotlyOutput("graf"),
               plotOutput("hist"),
               radioButtons("bins","število stolpcev:",choices = c(10,15,20,25,30,50,100),selected=10,inline=TRUE),
-              checkboxInput("gostota","Prikaži gostoto")
+              checkboxInput("gostota","Prikaži gostoto",value=FALSE)
               )
     
   )

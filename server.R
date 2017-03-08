@@ -24,7 +24,7 @@ shinyServer(function(input, output) {
     x<-price$`TodayChg(%)`
     hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability = TRUE,
          main="Histogram",col = 'blue',border = 'white')
-    if(input$gostota==TRUE){lines(density(x),col='black',lwd=1.5)}
+    if(input$gostota){lines(density(x),col='black',lwd=1.5)}
   })
   
 })
