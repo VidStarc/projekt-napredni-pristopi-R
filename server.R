@@ -77,27 +77,35 @@ shinyServer(function(input, output) {
   
   output$hist<-renderPlot({
     if(input$izbira2=='današnja'){x<-price$`TodayChg(%)`
-    hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability = TRUE,
-         main="",col = 'blue',border = 'white',ylab="gostota")
+    yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
+    maks<-max(max(density(x)$y),max(yhist$density))
+    hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
+         main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
     title("Histogram",font=1)
     if(input$gostota){lines(density(x),col='black',lwd=1.5)}}
     else{
       if(input$izbira2=='7 dnevna'){x<-price$`7DayChg(%)`
-      hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability = TRUE,
-           main="",col = 'blue',border = 'white',ylab="gostota")
+      yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
+      maks<-max(max(density(x)$y),max(yhist$density))
+      hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
+           main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
       title("Histogram",font=1)
       if(input$gostota){lines(density(x),col='black',lwd=1.5)}}
       
       else{
         if(input$izbira2=='30 dnevna'){x<-price$`30DayChg(%)`
-        hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability = TRUE,
-             main="",col = 'blue',border = 'white',ylab="gostota")
+        yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
+        maks<-max(max(density(x)$y),max(yhist$density))
+        hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
+             main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
         title("Histogram",font=1)
         if(input$gostota){lines(density(x),col='black',lwd=1.5)}}
         
         else{x<-price$`6MonthChg(%)`
-        hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability = TRUE,
-             main="",col = 'blue',border = 'white',ylab="gostota")
+        yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
+        maks<-max(max(density(x)$y),max(yhist$density))
+        hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
+             main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
         title("Histogram",font=1)
         if(input$gostota){lines(density(x),col='black',lwd=1.5)}}
       }
