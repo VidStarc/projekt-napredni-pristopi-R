@@ -46,7 +46,7 @@ shinyUI(
                         )
                       )),
 
-             tabPanel("Spremembe",
+             tabPanel("Spremembe cen delnic",
                       titlePanel("Primerjava sprememb cen delnic podjetij v FTSE 100",
                                  list(tags$head(tags$style("body {background-color: #ADD8E6; }")))),
                       br(),
@@ -67,7 +67,7 @@ shinyUI(
                       fluidRow(
                       column(7,plotOutput("hist")),
                       column(5,wellPanel(
-                        sliderInput("bins","število stolpcev:",min=10,max=100,value=10),
+                        sliderInput("bins","Število stolpcev:",min=10,max=100,value=10),
                              checkboxInput("gostota","Prikaži gostoto",value=FALSE))))
                                
       
