@@ -1,4 +1,3 @@
-source('projekt.R', encoding='UTF-8')
 
 library(shiny)
 library(plotly)

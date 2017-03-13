@@ -9,6 +9,8 @@ library(dygraphs)
 library(treemap)
 #ADD8E6
 #49C9BA
+first=source('projekt.R', encoding='UTF-8')
+first$value
 
 shinyUI(
   navbarPage(
