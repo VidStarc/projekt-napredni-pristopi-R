@@ -52,15 +52,15 @@ shinyUI(
                       br(),
                       fluidRow(
                         column(7,plotlyOutput("graf")),
-                        column(5,wellPanel(tags$style(".well {background-color: springgreen;}"),
+                        column(5,wellPanel(tags$style(".well {background-color: coral;}"),
                         fluidRow(column(7,radioButtons("izbira","Tip spremembe cene",c("Vse","Samo pozitivne spremembe","Samo negativne spremembe")),
                                conditionalPanel(condition = "input.izbira == 'Samo negativne spremembe'",checkboxInput("neg1","večje od -1"))),
                                column(5,radioButtons("izbira2","Časovno obdobje spremembe",c("današnja","7 dnevna","30 dnevna","6 mesečna"))),
                                br(),br(),br(),br(),br(),br(),br(),br(),br(),
-                               column(12,helpText("Za koliko se je spremenila cena delnice podjetja vključenega v indeks FTSE 100 v slednjem časovnem obdobju (v %)."))),
+                               column(12,h6("Za koliko se je spremenila cena delnice podjetja vključenega v indeks FTSE 100 v slednjem časovnem obdobju (v %)."))),
                         checkboxInput("prim","Primerjava podjetij"),
                         conditionalPanel(condition = "input.prim ",selectInput("podjetja","Podjetja",choices = price$Epic,multiple=TRUE)),
-                        helpText("Izberi podjetja, ki jih želiš primerjati. Primerjava temelji na spremembi cen v določenem časovnem odbdobju. Tip spremembe cene pusti na: Vse, časovno obdobje lahko spreminjaš"))
+                        h6("Izberi podjetja, ki jih želiš primerjati. Primerjava temelji na spremembi cen v določenem časovnem odbdobju. Tip spremembe cene pusti na: Vse, časovno obdobje lahko spreminjaš"))
                         )
                         ),
                       br(),

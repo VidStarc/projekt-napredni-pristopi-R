@@ -114,6 +114,7 @@ shinyServer(function(input, output) {
     if(input$izbira2=='današnja'){x<-price$`TodayChg(%)`
     yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
     maks<-max(max(density(x)$y),max(yhist$density))
+    par(bg="#ADD8E6")
     hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
          main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
     title("Histogram",font=1)
@@ -122,6 +123,7 @@ shinyServer(function(input, output) {
       if(input$izbira2=='7 dnevna'){x<-price$`7DayChg(%)`
       yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
       maks<-max(max(density(x)$y),max(yhist$density))
+      par(bg="#ADD8E6")
       hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
            main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
       title("Histogram",font=1)
@@ -131,6 +133,7 @@ shinyServer(function(input, output) {
         if(input$izbira2=='30 dnevna'){x<-price$`30DayChg(%)`
         yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
         maks<-max(max(density(x)$y),max(yhist$density))
+        par(bg="#ADD8E6")
         hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
              main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
         title("Histogram",font=1)
@@ -139,6 +142,7 @@ shinyServer(function(input, output) {
         else{x<-price$`6MonthChg(%)`
         yhist<-hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),plot=FALSE)
         maks<-max(max(density(x)$y),max(yhist$density))
+        par(bg="#ADD8E6")
         hist(x,breaks = seq(min(x), max(x), length.out = as.integer(input$bins) + 1),probability=TRUE,
              main="",col = 'blue',border = 'white',ylab="gostota",ylim=c(0,maks))
         title("Histogram",font=1)
