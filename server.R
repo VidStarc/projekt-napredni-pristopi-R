@@ -177,7 +177,7 @@ shinyServer(function(input, output, session) {
     }
     validate(need(nrow(fin) > 0, " "))
     fin <- t(fin[,-1])
-    rownames(fin) <- c("Name", "Revenue [v mio]", "Pre-tax profit [v mio]", "Earnings Per Share [delež]", "Cash & Equivity", "Market Cap [v mio]", "Shares in issue [v mio]", "P/E ration", "Dividend Yield [v %]", "Link")
+    rownames(fin) <- c("Name", "Revenue [v mio]", "Pre-tax profit [v mio]", "Earnings Per Share [delež]", "Cash & Equity", "Market Cap [v mio]", "Shares in issue [v mio]", "P/E ration", "Dividend Yield [v %]", "Link")
     fin}, escape=FALSE) 
   
   h2hPanel <- fluidRow(
