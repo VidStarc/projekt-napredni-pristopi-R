@@ -38,8 +38,12 @@ shinyUI(
                           titleWidth = 350
                         ),
                         dashboardSidebar(
-                        
+                          h2(""),
+                          actionButton(inputId="goButton", "Pokaži/Nazaj", icon = NULL),
+              
                           uiOutput("statistike")
+                          #actionButton(inputId="selectall", "Update the results", icon = NULL),
+                          #actionButton(inputId="goButton", "Pokaži", icon = NULL)
                           
                         ),
                         dashboardBody(
